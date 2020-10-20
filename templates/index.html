@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        hykeegj News | {{order_by}}
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+    </link>
+</head>
+
+<body>
+    <header>
+        <h1>hykeegj News</h1>
+        {% if order_by=='popular' %}
+        <div>
+            Order by:
+            <strong>Popular</strong>
+            |
+            <a href="/?order_by=new">New</a>
+        </div>
+        {% elif order_by=='new' %}
+        <div>
+            Order by:
+            <a href="/?order_by=popular">Popular</a>
+            |
+            <strong>New</strong>
+        </div>
+        {% else %}
+        <div>
+            Order by:
+            <strong>Popular</strong>
+            |
+            <a href="/?order_by=new">New</a>
+        </div>
+        {% endif %}
+    </header>
+    <main>
+        {% for title_item, url_item, points_item, author_item, num_comments_item, objectID_item in zip(title, url, points, author, num_comments, objectID) %}
+        <div>
+            <div>
+                <a href="/{{objectID_item}}">
+                    <h3>{{title_item}}</h3>
+                </a>
+                <a href="{{url_item}}" target="_blanl">http://www.bbc.com/news/uk-43396008</a>
+            </div>
+            <div>
+                {{points_item}} points | By: {{author_item}} | {{num_comments_item}} comments
+            </div>
+        </div>
+        <hr />
+        {% endfor %}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        hykeegj News | {{title}}
+    </title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+    </link>
+</head>
+
+<body>
+    <header>
+        <h1>{{title}}</h1>
+        <div>
+            {{points}} points | By {{author}} | <a href="{{url}}" target="_blank">{{url}}</a>
+        </div>
+    </header>
+    <main>
+        {% for author_item, text_item in zip(comment_author, comment_text) %}
+        {% if author_item != None %}
+        <div>
+            <strong>{{author_item}}:</strong>
+            <p>
+            <p>{{text_item|safe}}</p>
+            </p>
+        </div>
+        <hr />
+        {% else %}
+        <div>
+            [deleted]
+        </div>
+        <hr />
+        {% endif %}
+        {% endfor %}
+    </main>
+</body>
+
+</html>
