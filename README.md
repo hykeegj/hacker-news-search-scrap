@@ -1,2 +1,3 @@
-# python_flask_json_api
-파이썬 플라스크 API_JSON 파싱
+# 해커 뉴스 스크랩
+
+해커 뉴스 스크랩 (https://news.ycombinator.com/)
